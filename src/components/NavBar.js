@@ -81,7 +81,6 @@ const NavBar = () => {
         <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -90,16 +89,14 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
-            to='/'
+            to='/photos'
             className={classes.toolbarLink}
           >
-            Design
+            Photos
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -108,7 +105,6 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -117,7 +113,6 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -126,7 +121,6 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -135,7 +129,6 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -144,7 +137,6 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
@@ -153,16 +145,14 @@ const NavBar = () => {
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
-            to='/'
+            to='/courses-list'
             className={classes.toolbarLink}
           >
-            Style
+            CoursesList
           </Link>
           <Link
             color="inherit"
-            noWrap
             variant="body2"
             to='/'
             className={classes.toolbarLink}
