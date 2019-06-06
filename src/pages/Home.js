@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,7 +13,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
-// import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
@@ -22,18 +22,7 @@ import Markdown from '../layout/Markdown/Markdown';
 import post1 from '../layout/Markdown/blog-post.1.md';
 import post2 from '../layout/Markdown/blog-post.2.md';
 import post3 from '../layout/Markdown/blog-post.3.md';
-
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Built using '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </Link>
-      {' with React.'}
-    </Typography>
-  );
-}
+import Footer from '../layout/Footer/Footer';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -99,11 +88,6 @@ const useStyles = makeStyles(theme => ({
   sidebarSection: {
     marginTop: theme.spacing(3),
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0),
-  },
 }));
 
 const featuredPosts = [
@@ -163,7 +147,16 @@ export default function Home() {
             <SearchIcon />
           </IconButton>
           <Button variant="outlined" size="small">
-            Sign up
+            <Link
+              color="inherit"
+              noWrap
+              variant="body2"
+              href='/signin'
+              style={{ textDecoration: 'none' }}
+              className={classes.toolbarLink}
+            >
+              Sign in
+            </Link>
           </Button>
         </Toolbar>
         <NavBar />
@@ -280,19 +273,9 @@ export default function Home() {
         </main>
 
       </Container>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Container maxWidth="lg">
-          <Typography variant="h6" align="center" gutterBottom>
-            In Development
-          </Typography>
-          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            Mickell Crawford
-          </Typography>
-          <MadeWithLove />
-        </Container>
-      </footer>
-      {/* End footer */}
+
+      <Footer />
+
     </React.Fragment>
   );
 }
