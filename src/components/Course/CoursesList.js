@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import * as contentful from 'contentful'
-import Course from '../components/Course'
+import Course from './Course'
 
 const SPACE_ID = '0n4m3j6h6sxd'
 const ACCESS_TOKEN = 'Cy3dY7iQ1ijgrQWghyIta5uJ0B8HKJXIIE_KDjNN0cA'

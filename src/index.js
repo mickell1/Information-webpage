@@ -6,10 +6,10 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import App from './App'
-import Photos from './components/Photos';
-import CoursesList from './components/CoursesList';
+import Photos from './components/Photo';
+import CoursesList from './components/Course/CoursesList';
 import Contact from './components/Contact';
-import NotFound from './components/notfound';
+import NotFound from './components/NotFound';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (

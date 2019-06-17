@@ -17,7 +17,7 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Navigation/NavBar';
 import Markdown from '../layout/Markdown/Markdown';
 import post1 from '../layout/Markdown/blog-post.1.md';
 import post2 from '../layout/Markdown/blog-post.2.md';
