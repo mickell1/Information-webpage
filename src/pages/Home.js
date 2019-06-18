@@ -22,7 +22,7 @@ import Markdown from '../layout/Markdown/Markdown';
 import post1 from '../layout/Markdown/blog-post.1.md';
 import post2 from '../layout/Markdown/blog-post.2.md';
 import post3 from '../layout/Markdown/blog-post.3.md';
-import Footer from '../layout/Footer/Footer';
+import Footer from '../layout/Footer';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
