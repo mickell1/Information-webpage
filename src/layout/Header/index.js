@@ -10,9 +10,9 @@ import NavBar from '../../components/Navigation/NavBar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-import { AuthUserContext } from '../../components/Session';
+import { AuthUserContext, withAuthentication } from '../../components/Session';
 import SignOut from '../../components/SignOut';
-// import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../../constants/routes';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Header() {
+function Header() {
   return (
   <div>
     <AuthUserContext.Consumer>
@@ -69,7 +69,7 @@ export default function Header() {
               color="inherit"
               noWrap
               variant="body2"
-              href='/account'
+              href={ROUTES.ACCOUNT}
               style={{ textDecoration: 'none' }}
               className={classes.toolbarLink}
             >
@@ -96,7 +96,7 @@ export default function Header() {
     )
   };
 
-  export function NonAuthNavigation() {
+  function NonAuthNavigation() {
     const classes = useStyles();
     return (
     <React.Fragment>
@@ -122,7 +122,7 @@ export default function Header() {
               color="inherit"
               noWrap
               variant="body2"
-              href='/signin'
+              href={ROUTES.SIGN_IN}
               style={{ textDecoration: 'none' }}
               className={classes.toolbarLink}
             >
@@ -135,3 +135,5 @@ export default function Header() {
     </React.Fragment>
     )
   };
+
+  export default withAuthentication(Header);

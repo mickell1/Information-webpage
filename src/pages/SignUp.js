@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +16,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Footer from '../layout/Footer';
 
-import { compose } from 'recompose';
 import { withFirebase } from '../components/Firebase';
 import * as ROUTES from '../constants/routes';
 
@@ -73,7 +73,7 @@ function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <SignUpForm />
+        <SignUpPage />
       </div>
       <Box mt={5}>
         <Footer />
@@ -105,15 +105,13 @@ class SignUpForm extends Component {
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        return this.props.firebase 
-          .user(authUser.user.uid)
-          .set({
+        return this.props.firebase.user(authUser.user.uid).set({
             username, 
             email,
           });
       })
-      .then(authUser => {
-        this.setState({ INITIAL_STATE });
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
       }) 
       .catch(error => {
@@ -263,6 +261,6 @@ const SignUpPage = compose(
   withFirebase,
 )(SignUpForm);
 
-export default SignUp
+export default SignUp;
 
-export { SignUpPage }
+export { SignUpPage };

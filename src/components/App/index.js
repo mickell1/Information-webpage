@@ -6,9 +6,12 @@ import SignUp from '../../pages/SignUp';
 import PasswordForgetPage from '../PasswordForget';
 import Photos from '../Photo';
 import CoursesList from '../Course/CoursesList';
+import AccountPage from '../Account'
 import Contact from '../Contact';
 import NotFound from '../NotFound';
+
 import * as ROUTES from '../../constants/routes';
+import { withAuthentication } from '../Session';
 
 const App = () => (
   <Router>
@@ -20,6 +23,7 @@ const App = () => (
         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
         <Route path={ROUTES.PHOTOS} component={Photos} />
         <Route path={ROUTES.COURSES_LIST} component={CoursesList} />
+        <Route path={ROUTES.ACCOUNT} component={AccountPage} />
         <Route path={ROUTES.CONTACT} component={Contact} />
         <Route component={NotFound} />
       </Switch>
@@ -27,4 +31,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default withAuthentication(App);
