@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from '../../pages/Home';
 import SignIn from '../../pages/SignIn';
 import SignUp from '../../pages/SignUp';
+import PasswordForgetPage from '../PasswordForget';
 import Photos from '../Photo';
 import CoursesList from '../Course/CoursesList';
 import Contact from '../Contact';
@@ -16,6 +17,7 @@ const App = () => (
         <Route exact path={ROUTES.HOME} component={Home} />
         <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
         <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
+        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
         <Route path={ROUTES.PHOTOS} component={Photos} />
         <Route path={ROUTES.COURSES_LIST} component={CoursesList} />
         <Route path={ROUTES.CONTACT} component={Contact} />

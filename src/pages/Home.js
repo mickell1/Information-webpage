@@ -17,6 +17,8 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
+
+import Header from '../layout/Header';
 import NavBar from '../components/Navigation/NavBar';
 import Markdown from '../layout/Markdown/Markdown';
 import post1 from '../layout/Markdown/blog-post.1.md';
@@ -131,7 +133,8 @@ export default function Home() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Toolbar className={classes.toolbar}>
+        <Header />
+        {/* <Toolbar className={classes.toolbar}>
           <Button size="small">Subscribe</Button>
           <Typography
             component="h2"
@@ -159,7 +162,7 @@ export default function Home() {
             </Link>
           </Button>
         </Toolbar>
-        <NavBar />
+        <NavBar /> */}
 
         <main>
           {/* Main featured post */}

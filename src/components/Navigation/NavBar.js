@@ -141,7 +141,7 @@ const NavBar = () => {
             to='/'
             className={classes.toolbarLink}
           >
-            Health
+            Travel
           </Link>
           <Link
             color="inherit"
@@ -154,10 +154,10 @@ const NavBar = () => {
           <Link
             color="inherit"
             variant="body2"
-            to='/'
+            to='/contact'
             className={classes.toolbarLink}
           >
-            Travel
+            Contact
           </Link>
         </Toolbar>
         </div>
