@@ -83,8 +83,6 @@ function SignUp() {
 }
 
 const INITIAL_STATE = {
-  firstName: '',
-  lastName: '',
   username: '',
   email: '',
   passwordOne: '',
@@ -100,7 +98,7 @@ class SignUpForm extends Component {
   }
 
   onSubmit = event => {
-    const { firstName, lastName, username, email, passwordOne } = this.state;
+    const { username, email, passwordOne } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -129,8 +127,6 @@ class SignUpForm extends Component {
     // const classes = useStyles();
 
     const {
-      firstName,
-      lastName,
       username,
       email,
       passwordOne,
@@ -142,9 +138,9 @@ class SignUpForm extends Component {
     passwordOne === '' || email === '' || username === '';
 
     return (
-      <form noValidate>
+      <form onSubmit={this.onSubmit}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          {/* <Grid item xs={12} sm={6}>
             <TextField
               autoComplete="fname"
               name="firstName"
@@ -170,7 +166,7 @@ class SignUpForm extends Component {
               id="lastName"
               label="Last Name"
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <TextField
               autoComplete="uname"

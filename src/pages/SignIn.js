@@ -134,7 +134,7 @@ class SignInForm extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form noValidate>
+      <form onSubmit={this.onSubmit}>
         <TextField
           name="email"
           value={email}
