@@ -103,15 +103,18 @@ class SignUpForm extends Component {
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        return this.props.firebase.user(authUser.user.uid).set({
-            username, 
+        // Create a user in your Firebase realtime database
+        return this.props.firebase
+          .user(authUser.user.uid)
+          .set({
+            username,
             email,
           });
       })
-      .then(() => {
+      .then(authUser => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
-      }) 
+      })
       .catch(error => {
         this.setState({ error });
       });
@@ -177,7 +180,7 @@ class SignUpForm extends Component {
               required
               fullWidth
               id="username"
-              label="Username"
+              label="Full Name"
               autoFocus
             />
           </Grid>
@@ -234,7 +237,6 @@ class SignUpForm extends Component {
           variant="contained"
           color="primary"
           disabled={isInvalid}
-          // className={classes.submit}
         >
           Sign Up
         </Button>

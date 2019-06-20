@@ -2,9 +2,6 @@ import React from 'react';
 // import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -14,12 +11,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 
 import Header from '../layout/Header';
-import NavBar from '../components/Navigation/NavBar';
 import Markdown from '../layout/Markdown/Markdown';
 import post1 from '../layout/Markdown/blog-post.1.md';
 import post2 from '../layout/Markdown/blog-post.2.md';
@@ -134,35 +129,6 @@ export default function Home() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header />
-        {/* <Toolbar className={classes.toolbar}>
-          <Button size="small">Subscribe</Button>
-          <Typography
-            component="h2"
-            variant="h5"
-            color="inherit"
-            align="center"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            World News
-          </Typography>
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-          <Button variant="outlined" size="small">
-            <Link
-              color="inherit"
-              noWrap
-              variant="body2"
-              href='/signin'
-              style={{ textDecoration: 'none' }}
-              className={classes.toolbarLink}
-            >
-              Sign in
-            </Link>
-          </Button>
-        </Toolbar>
-        <NavBar /> */}
 
         <main>
           {/* Main featured post */}
@@ -274,7 +240,6 @@ export default function Home() {
             {/* End sidebar */}
           </Grid>
         </main>
-
       </Container>
 
       <Footer />
