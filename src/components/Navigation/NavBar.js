@@ -85,6 +85,14 @@ const NavBar = () => {
             to='/'
             className={classes.toolbarLink}
           >
+            Home
+          </Link>
+          <Link
+            color="inherit"
+            variant="body2"
+            to='/'
+            className={classes.toolbarLink}
+          >
             Technology
           </Link>
           <Link
@@ -101,14 +109,6 @@ const NavBar = () => {
             to='/'
             className={classes.toolbarLink}
           >
-            Culture
-          </Link>
-          <Link
-            color="inherit"
-            variant="body2"
-            to='/'
-            className={classes.toolbarLink}
-          >
             Business
           </Link>
           <Link
@@ -117,7 +117,7 @@ const NavBar = () => {
             to='/'
             className={classes.toolbarLink}
           >
-            Politics
+            Statistics
           </Link>
           <Link
             color="inherit"
@@ -125,7 +125,7 @@ const NavBar = () => {
             to='/'
             className={classes.toolbarLink}
           >
-            Opinion
+            Design
           </Link>
           <Link
             color="inherit"

@@ -1,7 +1,7 @@
 import React from 'react';
+import Box from '@material-ui/core/box'
 
 import { AuthUserContext, withAuthorization } from '../components/Session';
-import { PasswordForgetForm } from '../components/PasswordForget';
 import PasswordChangeForm from '../components/PasswordChange';
 
 const AccountPage = () => (
@@ -9,8 +9,9 @@ const AccountPage = () => (
     {
       authUser => (
         <div>
-          <h1>Account: {authUser.email}</h1>
-          <PasswordForgetForm />
+          <Box ml={60}>
+            <h1>Account: {authUser.email}</h1>
+          </Box>
           <PasswordChangeForm />
         </div>
       )

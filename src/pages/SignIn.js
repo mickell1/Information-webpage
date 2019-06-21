@@ -51,18 +51,6 @@ function SignIn() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Typography
-        component="h2"
-        variant="h5"
-        color="inherit"
-        align="center"
-        noWrap
-        className={classes.toolbarTitle}
-      >
-        <Link href="/" className={classes.toolbarTitle}>
-          World News
-        </Link>
-      </Typography>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
