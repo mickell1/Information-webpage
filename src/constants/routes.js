@@ -6,4 +6,5 @@ export const PHOTOS = '/photos';
 export const COURSES_LIST = '/courses-list';
 export const ACCOUNT = '/account';
 export const ADMIN = '/admin';
+export const ADMIN_DETAILS = '/admin/:id';
 export const CONTACT = '/contact'

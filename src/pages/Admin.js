@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { compose } from 'recompose';
 
-import { withAuthorization } from '../components/Session';
-// import { UserList, UserItem } from '../Users';
-// import * as ROLES from '../../constants/roles';
+import { withAuthorization, withEmailVerification } from '../components/Session';
+import { UserList, UserItem } from '../components/Users';
+import * as ROLES from '../constants/roles';
 import * as ROUTES from '../constants/routes';
 
 const AdminPage = () => (
@@ -13,17 +13,16 @@ const AdminPage = () => (
     <p>The Admin Page is accessible by every signed in admin user.</p>
 
     <Switch>
-      {/* <Route exact path={ROUTES.ADMIN_DETAILS} component={UserItem} /> */}
-      <Route exact path={ROUTES.ADMIN} />
+      <Route exact path={ROUTES.ADMIN_DETAILS} component={UserItem} />
+      <Route exact path={ROUTES.ADMIN} component={UserList}/>
     </Switch>
   </div>
 );
 
 const condition = authUser =>
-  authUser
-  // authUser && !!authUser.roles[ROLES.ADMIN];
+  authUser && !!authUser.roles[ROLES.ADMIN];
 
 export default compose(
-  // withEmailVerification,
+  withEmailVerification,
   withAuthorization(condition),
 )(AdminPage);

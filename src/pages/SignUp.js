@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +19,7 @@ import Footer from '../layout/Footer';
 
 import { withFirebase } from '../components/Firebase';
 import * as ROUTES from '../constants/routes';
+import * as ROLES from '../constants/roles';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -87,8 +89,19 @@ const INITIAL_STATE = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
+  isAdmin: false,
   error: null,
 };
+
+const ACCOUNT_EXISTS_ERROR = 'auth/email-already-in-use';
+
+const ACCOUNT_EXISTS_ERROR_MSG = `
+  An account with this E-Mail address already exists.
+  Try to login with this account instead. If you think the
+  account is already used from one of the social logins, try
+  to sign in with one of them. Afterward, associate your accounts
+  on your personal account page.
+`;
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -98,7 +111,12 @@ class SignUpForm extends Component {
   }
 
   onSubmit = event => {
-    const { username, email, passwordOne } = this.state;
+    const { username, email, passwordOne, isAdmin } = this.state;
+    const roles = {}
+
+    if(isAdmin) {
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
+    }
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -109,13 +127,18 @@ class SignUpForm extends Component {
           .set({
             username,
             email,
+            roles,
           });
       })
-      .then(authUser => {
+      .then(() => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
+        if(error.code === ACCOUNT_EXISTS_ERROR) {
+          error.message = ACCOUNT_EXISTS_ERROR_MSG
+        }
+
         this.setState({ error });
       });
 
@@ -126,14 +149,17 @@ class SignUpForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  render() {
-    // const classes = useStyles();
+  onChangeCheckbox = event => {
+    this.setState({ [event.target.name]: event.target.checked });
+  };
 
+  render() {
     const {
       username,
       email,
       passwordOne,
       passwordTwo,
+      isAdmin,
       error
     } = this.state;
 
@@ -143,33 +169,6 @@ class SignUpForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <Grid container spacing={2}>
-          {/* <Grid item xs={12} sm={6}>
-            <TextField
-              autoComplete="fname"
-              name="firstName"
-              value={firstName}
-              onChange={this.onChange}
-              variant="outlined"
-              required
-              fullWidth
-              id="firstName"
-              label="First Name"
-              autoFocus
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              autoComplete="lname"
-              name="lastName"
-              value={lastName}
-              onChange={this.onChange}
-              variant="outlined"
-              required
-              fullWidth
-              id="lastName"
-              label="Last Name"
-            />
-          </Grid> */}
           <Grid item xs={12}>
             <TextField
               autoComplete="uname"
@@ -231,6 +230,10 @@ class SignUpForm extends Component {
             />
           </Grid>
         </Grid>
+        <FormControlLabel
+          control={<Checkbox name="isAdmin" value={isAdmin} onChange={this.onChangeCheckbox} color="primary" />}
+          label="Admin:"
+        />
         <Button
           type="submit"
           fullWidth

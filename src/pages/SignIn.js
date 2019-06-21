@@ -9,14 +9,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import { withFirebase } from '../components/Firebase';
-import Footer from '../layout/Footer';
 import * as ROUTES from '../constants/routes';
 
 const useStyles = makeStyles(theme => ({
@@ -88,9 +86,6 @@ function SignIn() {
           </Grid>
         </Grid>
       </div>
-      <Box mt={5}>
-        <Footer />
-      </Box>
     </Container>
   )
 }

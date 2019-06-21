@@ -14,12 +14,10 @@ import Link from '@material-ui/core/Link';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 
-import Header from '../layout/Header';
 import Markdown from '../layout/Markdown/Markdown';
 import post1 from '../layout/Markdown/blog-post.1.md';
 import post2 from '../layout/Markdown/blog-post.2.md';
 import post3 from '../layout/Markdown/blog-post.3.md';
-import Footer from '../layout/Footer';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -128,7 +126,7 @@ export default function Home() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header />
+        {/* <Header /> */}
 
         <main>
           {/* Main featured post */}
@@ -241,8 +239,6 @@ export default function Home() {
           </Grid>
         </main>
       </Container>
-
-      <Footer />
 
     </React.Fragment>
   );

@@ -10,13 +10,15 @@ import AccountPage from '../../pages/Account'
 import Admin from '../../pages/Admin';
 import Contact from '../Contact';
 import NotFound from '../NotFound';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
 const App = () => (
   <Router>
-    <div>
+    <Header />
       <Switch>
         <Route exact path={ROUTES.HOME} component={Home} />
         <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
@@ -29,7 +31,7 @@ const App = () => (
         <Route path={ROUTES.CONTACT} component={Contact} />
         <Route component={NotFound} />
       </Switch>
-    </div>
+    <Footer />
   </Router>
 );
 
