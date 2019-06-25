@@ -207,10 +207,20 @@ class SignUpForm extends Component {
             />
           </Grid>
         </Grid>
+        {/* <label>
+          Admin:
+          <input
+            name="isAdmin"
+            type="checkbox"
+            checked={isAdmin}
+            onChange={this.onChangeCheckbox}
+          />
+        </label> */}
         <FormControlLabel
-          control={<Checkbox name="isAdmin" value={isAdmin} onChange={this.onChangeCheckbox} color="primary" />}
           label="Admin"
+          control={<Checkbox name="isAdmin" value={isAdmin} onChange={this.onChangeCheckbox} color="primary" />}
         />
+        
         <Button
           type="submit"
           fullWidth

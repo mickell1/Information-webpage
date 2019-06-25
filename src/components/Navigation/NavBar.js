@@ -90,7 +90,7 @@ const NavBar = () => {
           <Link
             color="inherit"
             variant="body2"
-            to='/'
+            to='/technology'
             className={classes.toolbarLink}
           >
             Technology
@@ -122,7 +122,7 @@ const NavBar = () => {
           <Link
             color="inherit"
             variant="body2"
-            to='/'
+            to='/design'
             className={classes.toolbarLink}
           >
             Design
