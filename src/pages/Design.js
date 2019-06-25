@@ -13,7 +13,6 @@ class Design extends Component {
   }
 
   handleToggle() {
-    console.log('HEREE')
     const { toggle } =this.state;
     this.setState({ toggle: !toggle });
   }

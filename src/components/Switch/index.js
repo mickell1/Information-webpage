@@ -1,7 +1,6 @@
 import React from 'react';
 import { bool, string, func } from 'prop-types';
 import './styles/Switch.css';
-import { noop } from '@babel/types';
 
 const Switch = ({ 
   checked,
