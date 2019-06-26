@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import { withFirebase } from '../Firebase';
+import '../../styles/Errors.css';
 
 const INITIAL_STATE = {
   passwordOne: '',
@@ -35,7 +36,7 @@ class PasswordChangeForm extends Component {
   };
 
   onChange = event => {
-    this.setState({ [event.targer.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -79,7 +80,7 @@ class PasswordChangeForm extends Component {
               Reset My Password
             </Button>
 
-          {error && <p>{error.message}</p>}
+          {error && <p className="error">{error.message}</p>}
         </form>
       </Container>
     );

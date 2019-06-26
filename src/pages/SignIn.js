@@ -16,10 +16,7 @@ import Container from '@material-ui/core/Container';
 
 import { withFirebase } from '../components/Firebase';
 import * as ROUTES from '../constants/routes';
-import SignInGoogle from '../components/SignInMethods/SignInGoogle';
-import SignInFacebook from '../components/SignInMethods//SignInFacebook/';
-import SignInTwitter from '../components/SignInMethods/SignInTwitter';
-
+import '../styles/Errors.css';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -64,9 +61,6 @@ function SignIn() {
         </Typography>
 
         <SignInPage />
-        {/* <SignInGoogle />
-        <SignInFacebook />
-        <SignInTwitter /> */}
         
         <Grid container>
           <Grid item xs>
@@ -165,7 +159,7 @@ class SignInForm extends Component {
           Sign In
         </Button>
 
-        {error && <p>{error.message}</p>}
+        {error && <p className="error">{error.message}</p>}
       </form>
     );  
   }

@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import * as contentful from 'contentful'
 import Course from './Course'
+import '../../styles/Errors.css'
 
 const SPACE_ID = '0n4m3j6h6sxd'
 const ACCESS_TOKEN = 'Cy3dY7iQ1ijgrQWghyIta5uJ0B8HKJXIIE_KDjNN0cA'
@@ -30,16 +31,13 @@ class CoursesList extends Component {
     })
     .then((response) => {
       this.setState({ courses: response.items })
-      console.log(this.state.courses)
     })
     .catch((error) => {
-      console.log('Error occured while fetching entries')
-      console.log(error)
+      this.setState({ error })
     })
   }
 
   onSearchInputChange = (event) => {
-    console.log("Search changed ..." + event.target.value)
     if(event.target.value) {
       this.setState({ searchString: event.target.value })
     } else {
@@ -49,6 +47,7 @@ class CoursesList extends Component {
   }
 
   render() {
+    const { error } = this.state;
     return (
       <div>
         {
@@ -84,6 +83,7 @@ class CoursesList extends Component {
             </div>
           ) : 'No courses found'
         }
+        {error && <p className="error">{error.message}</p>}
       </div>
     )
   }

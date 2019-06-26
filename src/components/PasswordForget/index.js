@@ -4,6 +4,8 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { withFirebase } from '../Firebase';
+import '../../styles/Errors.css'
 
 const PasswordForgetPage = () => (
   <div>
@@ -16,7 +18,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
-class PasswordForgetForm extends Component {
+class PasswordForgetFormBase extends Component {
   constructor(props) {
     super(props)
 
@@ -76,7 +78,7 @@ class PasswordForgetForm extends Component {
               Reset My Password
             </Button>
 
-          {error && <p>{error.message}</p>}
+          {error && <p className="error">{error.message}</p>}
         </form>
       </Container>
     );
@@ -84,5 +86,7 @@ class PasswordForgetForm extends Component {
 }
 
 export default PasswordForgetPage;
+
+const PasswordForgetForm = withFirebase(PasswordForgetFormBase)
 
 export { PasswordForgetForm };
